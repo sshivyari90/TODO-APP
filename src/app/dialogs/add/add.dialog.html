@@ -1,0 +1,22 @@
+<div class="container">
+  <h3 mat-dialog-title>Add New Task</h3>
+
+  <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm">
+    <div class="form">
+      <mat-form-field color="accent">
+        <textarea matInput #input class="form-control" placeholder="Title" [(ngModel)]="data.id" name="id" required ></textarea>
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field color="accent">
+        <textarea matInput #inputdescription class="form-control" placeholder="Description" [(ngModel)]="data.description" name="description" maxlength="100"></textarea>
+        <mat-hint align="end">{{inputdescription.value?.length || 0}}/100</mat-hint>
+      </mat-form-field>
+    </div>
+  </form>
+  <mat-dialog-actions>
+    <button mat-raised-button color="primary" [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="confirmAdd()">Save</button>
+    <button mat-raised-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+  </mat-dialog-actions>
+</div>

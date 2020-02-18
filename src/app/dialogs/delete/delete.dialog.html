@@ -1,0 +1,12 @@
+<div class="container">
+  <h3 mat-dialog-title>Are you sure?</h3>
+  <div mat-dialog-content>
+    <p>Title: {{data.id}}</p>
+    <p>Description: {{data.description}}</p>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-raised-button color="warn" [mat-dialog-close]="1" (click)="confirmDelete()">Delete</button>
+    <button mat-raised-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+  </div>
+</div>
